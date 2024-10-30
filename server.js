@@ -29,7 +29,6 @@ app.get('/', (req, res) => {
     if (req.method === 'GET' && req.url === '/') {
 
         res.send('Welcome to the Bookstore API');
-        res.end(JSON.stringify(books));
     }
 });
 
@@ -40,19 +39,19 @@ app.post('/add', (req, res) => {
         return res.status(400).end('Book with this ID already exists');
     }
     books.push({ id, title, author, year });
-    res.end('Book added successfully');
+    res.send('Book added successfully');
 });
 
 app.get('/list', (req, res) => {
     if (req.method === 'GET' && req.url === '/list') {
-        res.end(JSON.stringify(books));
+        res.send('Request Done');
     }
 
 });
 
 app.put('/update', (req, res) => {
-    if (req.method === 'GET' && req.url === '/updtae') {
-        res.end(JSON.stringify(books));
+    if (req.method === 'PUT' && req.url === '/updtae') {
+        res.status(201).json({'Message':'Updated'});
     }
 });
 
