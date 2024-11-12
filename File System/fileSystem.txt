@@ -1,1 +1,0 @@
-{"title":"Life","author":"Khaliq","year":2024}
